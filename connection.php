@@ -6,7 +6,7 @@ define('DB_PASSWORD', 'cpONE313ON0!');
 define('DB_NAME', 'jamie_l_martin_db371s25');
 
 /* Connect to MySQL database */
-$conn = mysqli_connect(DB_SERVER, DB_USERNAme, DB_PASSWORD, DB_NAME);
+$conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
 // Check connection
 if ($conn === false) {
