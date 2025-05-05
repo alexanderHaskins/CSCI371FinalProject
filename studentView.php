@@ -9,6 +9,9 @@ where a.userID=u.userID or a.userID is null";
 $result = $conn->query($sql);
 $rows = array();
 
+//For testing purposes only, once login is completed replace this with the current users id
+$currentID = -1;//Replace later
+
 
 
 echo "<table border='1'>";
@@ -19,7 +22,7 @@ echo "<th>Group Number:</th>";
 echo "<th>Group Name:</th>";
 echo "<th>Email:</th>";
 echo "<th>Name:</th>";
-echo "<th>Availability:</th>";
+//echo "<th>Availability:</th>";
 echo "</tr>";
 //$row2 = $result2->fetch_assoc();
 while ($row = $result->fetch_assoc()) {
@@ -65,7 +68,7 @@ foreach ($rows as $row) {
         is_null($row['appointmentGroupID']) and is_null($row['appointmentTeamName']) 
         and is_null($row['appointmentEmail']) and is_null($row['user'])
     ) {
-        echo "<td>" . "Available" . "</td>";
+        echo "<td>" . "Schedule" . "</td>";
     } else {
         /*
         if(!is_null('appointmentGroupID')){
@@ -80,8 +83,15 @@ foreach ($rows as $row) {
         */
         
 
-        echo "<td>" . "Booked" . "</td>";
+        
+        if($row['user'] == $currentID){
+            echo "<td>" . "Cancel" . "</td>";
+        }else{
+            echo "<td>" . "Booked" . "</td>";
+        }
     }
+    
+    
 
 
     //$conn2->close();
