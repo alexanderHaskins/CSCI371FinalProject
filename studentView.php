@@ -68,7 +68,9 @@ foreach ($rows as $row) {
         is_null($row['appointmentGroupID']) and is_null($row['appointmentTeamName']) 
         and is_null($row['appointmentEmail']) and is_null($row['user'])
     ) {
-        echo "<td>" . "Schedule" . "</td>";
+        //echo "<td>" . "Schedule" . "</td>";
+        echo '
+            <td><a class="btn btn-primary" href="studentScheduleAppointment.php?appointmentID=' . $row['appointmentID'] . '" role="button">Schedule</a></td>';
     } else {
         /*
         if(!is_null('appointmentGroupID')){
