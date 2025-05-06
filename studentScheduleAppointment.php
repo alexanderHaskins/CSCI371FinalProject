@@ -1,6 +1,7 @@
 <?php
+include 'testConn.php';
 //For testing purposes only, once login is completed replace this with the current users id
-$currentID = 2;//Replace later
+$currentID = -1;//Replace later
 $appointment = $_GET["appointmentID"];
 
 $sql = "SELECT * from appointments where appointmentID=". $appointment;
@@ -17,6 +18,8 @@ $row = $result->fetch_assoc();
 $row2 = $result2->fetch_assoc();
 $row3 = $result3->fetch_assoc();
 echo '<form action="studentAddAppointment.php" method="post">';
+echo ' <label for="appointmentDate">Appointment ID:</label>';
+echo '<input type="text" class="form-control m-2" id="appointmentID" name="appointmentID" value="' . $row['appointmentID'] . '" readonly required>';
 echo ' <label for="appointmentDate">Date:</label>';
 echo '<input type="text" class="form-control m-2" id="appointmentDate" name="appointmentDate" value="'. $row['appointmentDate'].'" readonly required>';
 echo ' <label for="appointmentTime">Time:</label>';

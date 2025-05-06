@@ -2,15 +2,53 @@
 //This file serves to display the appointments table and link to the actions the Student can take
 
 include 'testConn.php';
+$choice = $_POST["Filter"];
+
+//For testing purposes only, once login is completed replace this with the current users id
+$currentID = 5;//Replace later
+
+
+echo '<form action="studentView.php" method="post">';
+echo '<label for="filter">Filter:</label>
+
+<select name="Filter" id="Filter">
+  <option value="All" default>All Appointments</option>
+  <option value="Available">Available Times</option>
+  <option value="Mine">My Appointments</option>
+</select>';
+echo '<input type="submit" value="Submit">
+    </form>';
+switch ($choice){
+    case "Available":
+        $sql = "select a.appointmentID, a.appointmentDate, a.appointmentTime,a.appointmentGroupID,a.appointmentTeamName,a.appointmentEmail,"
+            ."a.userID as user, u.userID, u.userFirstName, u.userLastName ".
+            "from appointments a,users u"
+            ." where a.userID is null";
+        break;
+    case "Mine":
+        $sql = "select a.appointmentID, a.appointmentDate, a.appointmentTime,a.appointmentGroupID,a.appointmentTeamName,a.appointmentEmail, "
+            . "a.userID as user, u.userID, u.userFirstName, u.userLastName " .
+            "from appointments a,users u "
+            . " where a.userID=". $currentID" and a.userID=u.user";
+        break;
+    default:
+        $sql = "select a.appointmentID, a.appointmentDate, a.appointmentTime,a.appointmentGroupID,a.appointmentTeamName,a.appointmentEmail,
+a.userID as user, u.userID, u.userFirstName, u.userLastName
+from appointments a,users u 
+where a.userID=u.userID or a.userID is null";
+}
+
+
+/*
 $sql = "select a.appointmentID, a.appointmentDate, a.appointmentTime,a.appointmentGroupID,a.appointmentTeamName,a.appointmentEmail,
 a.userID as user, u.userID, u.userFirstName, u.userLastName
 from appointments a,users u 
 where a.userID=u.userID or a.userID is null";
+*/
 $result = $conn->query($sql);
 $rows = array();
 
-//For testing purposes only, once login is completed replace this with the current users id
-$currentID = -1;//Replace later
+
 
 
 
@@ -87,7 +125,8 @@ foreach ($rows as $row) {
 
         
         if($row['user'] == $currentID){
-            echo "<td>" . "Cancel" . "</td>";
+            echo '
+            <td><a class="btn btn-primary" href="studentDeleteAppointment.php?appointmentID=' . $row['appointmentID'] . '" role="button">Cancel</a></td>';
         }else{
             echo "<td>" . "Booked" . "</td>";
         }

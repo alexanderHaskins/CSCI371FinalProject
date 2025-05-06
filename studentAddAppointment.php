@@ -1,10 +1,19 @@
 <?php
-//For testing purposes only, once login is completed replace this with the current users id
-$currentID = -1;//Replace later
-$appointment = $_GET["appointmentID"];
+include 'testConn.php';
+$date = $_POST["appointmentDate"];
+$time = $_POST["appointmentTime"];
+$group = $_POST["appointmentGroupID"];
+$team = $_POST["appointmentTeamName"];
+$email = $_POST["appointmentEmail"];
+$user = $_POST["userID"];
+$appointment = $_POST["appointmentID"];
+
+$sql = "UPDATE appointments SET appointmentDate=" . $date . ", appointmentTime=" . $time .
+    ", appointmentGroupID=" . $group . ", appointmentTeamName=" . $email . ", userID=" . $user .
+    "WHERE appointmentID=".$appointment;
 
 
 
-
+header("location: studentView.php");
 $conn->close();
 ?>
