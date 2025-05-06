@@ -1,0 +1,44 @@
+﻿body {
+    height: auto;
+    text-align: center;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+a.
+
+h1{
+    text-align: center;
+}
+create {
+    outline: none;
+}
+
+header{
+    background-color: green
+}
+
+/*footer won't connect to footer.html*/
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+} 
+
+.logout {
+    position: absolute;
+    right: 0px;
+    width: 300px;
+    border: 3px solid #73AD21;
+    padding: 10px;
+}
+
+topnav{
+    background: #18563e;
+}
