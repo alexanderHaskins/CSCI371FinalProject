@@ -17,16 +17,13 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
 
     echo ("<table border='1'>");
-
-    echo ""
 }
     if(mysqli_query($link, $sql)){
         echo "Record was deleted.";
     }
     else{
         echo "Unable to execute $sql. " . mysqli_error($link);
-
     }
-    mysqli_close($link);
-echo ('InstructorHome.php');
+    $conn->close().
+echo ("Location: InstructorHome.php");
 ?>
