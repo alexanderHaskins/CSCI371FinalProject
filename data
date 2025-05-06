@@ -3,14 +3,17 @@ $StudentName = "alexander.haskins"; $StudentPassword = "def5678";
 
 //Connection to MySQL
 include("connection.php");
+include("testConn.php");
 
 if($StudentName && $StudentPassword){
-    echo 'StudentHome.php';
+    echo ("Location: StudentView.php");
+    include "testConn.php";
 
 }
 else if($InstructorName && $InstructorPassword){
     
     echo 'InstructorHome.php';
+    include 'connection.php';
 }
 
 else {
