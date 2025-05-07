@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -15,17 +15,26 @@
         header {
             position: fixed;
             left: 0;
-            bottom: 0;
+            top: 15px;
             width: 100%;
             background-color: green;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            margin: 0;
+            color: yellow;
+            text-align: left;
+            padding: 15px;
         }
     </style>
-
-        <img class="image" src="NDSU.jpg" width="200" align="right">
+    <header>
+        <?php
+        session_start();
+        if(isset($_SESSION['username'])) {
+        $username = $_SESSION['username'];
+        }
+        ?>
+        <div id="header">
+            <a href="logout.php" class="button" style="color:white">Logout</a>
+            <img class="image" src="NDSU.jpg" width="150" align="right">
+        </div>
+    </header>
 
 </body>
 </html>
