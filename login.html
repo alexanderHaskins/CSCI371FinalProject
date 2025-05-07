@@ -53,27 +53,23 @@
     </form>
     <input type="submit" value="Login"><br />
 <?php
+$sql = "SELECT * FROM users"
+$result = $conn->query($sql);
+while ($row = $result->fetch_assoc()) {
+if($enteredUsername==$row['username'] && $enteredPassword==$row['password']){
+//The user is represented by the current row
 
-$username = $_POST['userID'];
-$password = $_POST['password'];
-$radioVal = $_POST['userType'];
+//Store userID and name in session
+$_SESSION["ID"]=$row['userID'];
+$_SESSION["Name"]=$row['firstName']." ".$row['lastName'];
 
-// username = oksana.myronovych, userPassword = testPass; userType Instructor
-// username = abby.abbot, userPassword = PassA; userType Student
-
-echo "<input type='text' id='username' value=''/>";
-echo "<input type='text' id='userPassword' value=''/>";
-
-if (($_POST['userID'] == 'oksana.myronovych' && $_POST['password'] == 'testPass' && $_POST['userType'] == 'Instructor')) {
-    header('Location: InstructorView.php');
-    include 'connection.php';
-
-} else if (($_POST['userID'] == 'abby.abbot' && $_POST['password'] == 'PassA' && $_POST['userType'] == 'Instructor')) {
-    header('Location: StudentView.php');
-    include 'Testconn.php';
-} 
-else {
-    echo "invalid name or password";
+//use userType to determine which site to send user to
+if(userType=="instructor){
+//Redirect user to instructor page
+}else{
+//Redirect user to student page
+}
+}
 }
 ?>     
 </div>
