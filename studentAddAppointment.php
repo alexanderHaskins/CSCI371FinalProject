@@ -8,12 +8,13 @@ $email = $_POST["appointmentEmail"];
 $user = $_POST["userID"];
 $appointment = $_POST["appointmentID"];
 
-$sql = "UPDATE appointments SET appointmentDate=" . $date . ", appointmentTime=" . $time .
-    ", appointmentGroupID=" . $group . ", appointmentTeamName=" . $email . ", userID=" . $user .
-    "WHERE appointmentID=".$appointment;
+$sql = "UPDATE appointments SET appointmentDate=cast('" . $date . "' as date), appointmentTime=cast('" . $time .
+    "' as time), appointmentGroupID=" . $group . ", appointmentTeamName='" .$team."', appointmentEmail='" . $email . "', userID=" . $user .
+    " WHERE appointmentID=".$appointment;
 
 
-
+echo $sql;
+$conn->query($sql);
 header("location: studentView.php");
 $conn->close();
 ?>

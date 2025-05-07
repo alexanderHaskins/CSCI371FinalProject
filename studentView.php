@@ -9,7 +9,7 @@ $currentID = 5;//Replace later
 
 
 echo '<form action="studentView.php" method="post">';
-echo '<label for="filter">Filter:</label>
+echo '<label for="Filter">Filter:</label>
 
 <select name="Filter" id="Filter">
   <option value="All" default>All Appointments</option>
@@ -29,7 +29,8 @@ switch ($choice){
         $sql = "select a.appointmentID, a.appointmentDate, a.appointmentTime,a.appointmentGroupID,a.appointmentTeamName,a.appointmentEmail, "
             . "a.userID as user, u.userID, u.userFirstName, u.userLastName " .
             "from appointments a,users u "
-            . " where a.userID=". $currentID" and a.userID=u.user";
+            . " where a.userID=". $currentID." and a.userID=u.userID";
+        //print $sql;
         break;
     default:
         $sql = "select a.appointmentID, a.appointmentDate, a.appointmentTime,a.appointmentGroupID,a.appointmentTeamName,a.appointmentEmail,
@@ -102,6 +103,7 @@ foreach ($rows as $row) {
     } else {
         echo "<td>" . "" . "</td>";
     }
+    echo "<td>" . $row['user'] . "</td>";
     if (
         is_null($row['appointmentGroupID']) and is_null($row['appointmentTeamName']) 
         and is_null($row['appointmentEmail']) and is_null($row['user'])
