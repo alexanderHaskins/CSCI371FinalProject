@@ -1,4 +1,5 @@
 <?php
+
 /* Database credentials */
 define('DB_SERVER', 'rei.cs.ndsu.nodak.edu');
 define('DB_USERNAME', 'jamie_l_martin_371s25');
