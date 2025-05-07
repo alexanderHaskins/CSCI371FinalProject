@@ -1,29 +1,22 @@
-<?php
-
 // Start the session
 session_start();
-
-echo "Welcome!" . $_REQUEST['InstructorName'];
-
-include("header.html");
+include("headerInst.html");
 include("footer.html");
 
 #connect to MySQL
 include("connection.php");
+$id = $_GET['appointmentID'];
 
-$sql = "DELETE FROM appointments WHERE";
+$sql = "DELETE FROM appointments WHERE id='" . $_GET[$id];
 $result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
-
-    echo ("<table border='1'>");
-}
-    if(mysqli_query($link, $sql)){
+    if($conn->query($SQL) === TRUE){
         echo "Record was deleted.";
     }
     else{
         echo "Unable to execute $sql. " . mysqli_error($link);
+
     }
-    $conn->close().
-echo ("Location: InstructorHome.php");
+$onn->close();
+header("Location: InstructorHome.php");
 ?>
