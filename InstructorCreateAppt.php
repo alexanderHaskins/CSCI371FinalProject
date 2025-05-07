@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include('header.html');
+include('headerInst.html');
 include('footer.html');
 
 include("connection.php");
@@ -25,6 +25,6 @@ echo "new appointment created";
 }
 
     $conn -> close();
-    echo('home.html');
+    echo('InstructorHome.php');
 ?>
 
