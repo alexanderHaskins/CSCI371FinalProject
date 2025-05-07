@@ -3,11 +3,11 @@
 
 // Start the session
 session_start();
-include("headerInstructor.html");
+include("header.html");
 include("footer.html");
 
-$login = $_SESSION['InstructorName'];
-echo $_SESSION['InstructorName'];
+$login = $_SESSION['username'];
+echo $_SESSION['username'];
 
 //Connection to MySQL
 include("connection.php");
