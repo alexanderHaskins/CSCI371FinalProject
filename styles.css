@@ -1,29 +1,42 @@
-﻿body {
-    height: auto;
-    text-align: center;
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-}
-header{
-    background-color: green
+body {
+    background-color: aliceblue;
 }
 
-/*footer won't connect to footer.html*/
+header {
+    position: center;
+    left: 0;
+    top: 20px;
+    width: 100%;
+    background-color: green;
+    color: yellow;
+    text-align: left;
+    padding: 20px;
+}
+
+headerInstructor {
+	position: center;
+    	left: 0;
+    	top: 20px;
+    	width: 100%;
+    	background-color: green;
+    	color: yellow;
+    	text-align: left;
+    	padding: 20px;
+}
+
+.input {
+    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 footer {
     position: fixed;
     left: 0;
-    bottom: 0;
+    bottom: 15px;
     width: 100%;
-    background-color: red;
-    color: white;
+    background-color: green;
+    color: yellow;
     text-align: center;
+    padding: 15px;
 } 
-
-.logout {
-    position: absolute;
-    right: 0px;
-    width: 300px;
-    border: 3px solid #73AD21;
-    padding: 10px;
-}
