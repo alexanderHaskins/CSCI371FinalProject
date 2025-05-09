@@ -3,7 +3,7 @@
 
 session_start();
 
-include"header.html";
+include"headerInst.html";
 include"footer.html";
 include'connect.php';
 
@@ -11,7 +11,7 @@ include'connect.php';
     $time = $_POST['appointmentTime'];
     $group = $_POST['appointmentGroupID'];
     $team = $_POST['appointmentTeamName'];
-    $date = $_POST["userId"];
+    $date = $_POST['userId'];
     $date = $_POST["appointmentID"];
 
 
