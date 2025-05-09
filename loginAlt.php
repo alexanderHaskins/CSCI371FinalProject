@@ -1,5 +1,6 @@
 <?php
 include("footer.html");
+include("header.php");
 echo '<link rel="stylesheet" type="text/css" href="style.css" media="screen" />';
 echo "<body style='background-color:aliceblue'>";
 

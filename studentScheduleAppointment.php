@@ -1,7 +1,7 @@
 <?php
 session_start();
 include 'testConn.php';
-include 'header.html';
+include 'header.php';
 include 'footer.html';
 
 $currentID = $_SESSION["userID"];

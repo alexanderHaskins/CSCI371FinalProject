@@ -3,7 +3,7 @@ session_start();
 //This file serves to display the appointments table and link to the actions the Student can take
 
 include 'testConn.php';
-include 'header.html';
+include 'header.php';
 include 'footer.html';
 $choice = $_POST["Filter"];
 

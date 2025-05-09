@@ -15,8 +15,8 @@ while ($row = $result->fetch_assoc()) {
         
         $_SESSION["userID"] = $row['userID'];
         //$_SESSION["userID"] = 10;
-        $_SESSION["fname"] = $row['userFirstName'];
-        $_SESSION["lname"] = $row['userLastName'];
+        $_SESSION["username"] = $row['userFirstName']." ". $row['userLastName'];
+        //$_SESSION["lname"] = $row['userLastName'];
 
         echo "<p>It works </p>";
         
