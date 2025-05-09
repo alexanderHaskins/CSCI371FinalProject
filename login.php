@@ -1,9 +1,9 @@
 <?php
 
-include("footer.html");
-echo '<link rel="stylesheet" type="text/css" href="style.css" media="screen" />';
+//include("footer.html");
+//echo '<link rel="stylesheet" type="text/css" href="style.css" media="screen" />';
 session_start();
-echo "<body style='background-color:aliceblue'>";
+//echo "<body style='background-color:aliceblue'>";
 
 $username = $_POST["username"];
 $password = $_POST["password"];
@@ -23,11 +23,12 @@ $username = htmlspecialchars($_POST['username']);
 <head>
     <meta charset="utf-8" />
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="styles.css" /> -->
+    
 
     <style>
         body{
@@ -47,7 +48,7 @@ $username = htmlspecialchars($_POST['username']);
                 text-align: center;
             }
         </style>
-        <form action="login" method="post">
+        <form action="loginHelper.php" method="post">
             <br />
             <br />
             <br />
@@ -60,7 +61,7 @@ $username = htmlspecialchars($_POST['username']);
             <input type="text" style="text-align: center;" id="user" name="username" required><br><br>
 
             <label for="password">Password:</label><br>
-            <input type="text" style="text-align: center";id="password" name="password" required><br><br>
+            <input type="password" style="text-align: center";id="password" name="password" required><br><br>
 
             <br />
         
@@ -76,7 +77,7 @@ $username = htmlspecialchars($_POST['username']);
         </label><br>
         </form>
 
-        <input type="submit" value="Login"><br />
+        <input type="submit" value="submit"><br />
         <br />
 
     </div>
