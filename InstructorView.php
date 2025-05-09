@@ -4,7 +4,7 @@ session_start();
 
 include("header.html");
 include("footer.html");
-include'connect.php';
+include'testConn.php';
 
 $login = $_SESSION['InstructorName'];
 echo $_SESSION['InstructorName'];
@@ -33,12 +33,6 @@ if (mysql_num_rows($results) > 0) {
     }
 }
 echo "</table>";
-
-
-    $msg .='<h3><a href ="InstructorCreate.php"><Create Appointment</a></h3>';
-    $msg .='<h3><a href ="InstructorDeleteAppt.php"><Delete Appointment</a></h3>';
-    $msg .='<h3><a href ="InstructorUpdate"><Update Appointment</a></h3>';
-    $msg .='<h3><a href ="logout.php"><Logout</a></h3>';
 ?>
 
 
