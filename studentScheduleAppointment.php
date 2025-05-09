@@ -1,8 +1,12 @@
 <?php
+session_start();
 include 'testConn.php';
-//For testing purposes only, once login is completed replace this with the current users id
-$currentID = 5;//Replace later
+include 'header.html';
+include 'footer.html';
+
+$currentID = $_SESSION["userID"];
 $appointment = $_GET["appointmentID"];
+//echo "<p>UserID:" . $currentID . "</p>";
 
 $sql = "SELECT * from appointments where appointmentID=". $appointment;
 $sql2 = "SELECT * from users where userID=" . $currentID;
@@ -20,7 +24,7 @@ $row3 = $result3->fetch_assoc();
 echo '<form action="studentAddAppointment.php" method="post">';
 echo ' <label for="appointmentDate">Appointment ID:</label>';
 echo '<br />';
-echo '<input type="text" class="form-control m-2" id="appointmentID" name="appointmentID" value="' . $row['appointmentID'] . '" readonly required>';
+echo '<input type="text" class="form-control m-2" id="appointmentID" name="appointmentID" value="' . $appointment . '" readonly required>';
 echo '<br />';
 
 echo ' <label for="appointmentDate">Date:</label>';

@@ -1,12 +1,17 @@
 <?php
+session_start();
 //This file serves to display the appointments table and link to the actions the Student can take
 
 include 'testConn.php';
+include 'header.html';
+include 'footer.html';
 $choice = $_POST["Filter"];
 
-//For testing purposes only, once login is completed replace this with the current users id
-$currentID = 5;//Replace later
 
+$currentID = $_SESSION["userID"];
+
+echo "<body>";
+//echo "<p>UserID:" . $currentID . "</p>";
 
 echo '<form action="studentView.php" method="post">';
 echo '<label for="Filter">Filter:</label>
@@ -23,22 +28,23 @@ switch ($choice){
         $sql = "select a.appointmentID, a.appointmentDate, a.appointmentTime,a.appointmentGroupID,a.appointmentTeamName,a.appointmentEmail,"
             ."a.userID as user, u.userID, u.userFirstName, u.userLastName ".
             "from appointments a,users u"
-            ." where a.userID is null";
+            ." where a.userID is null order by a.appointmentDate, a.appointmentTime";
         break;
     case "Mine":
         $sql = "select a.appointmentID, a.appointmentDate, a.appointmentTime,a.appointmentGroupID,a.appointmentTeamName,a.appointmentEmail, "
             . "a.userID as user, u.userID, u.userFirstName, u.userLastName " .
             "from appointments a,users u "
-            . " where a.userID=". $currentID." and a.userID=u.userID";
+            . " where a.userID=". $currentID." and a.userID=u.userID order by a.appointmentDate, a.appointmentTime";
         //print $sql;
         break;
     default:
         $sql = "select a.appointmentID, a.appointmentDate, a.appointmentTime,a.appointmentGroupID,a.appointmentTeamName,a.appointmentEmail,
 a.userID as user, u.userID, u.userFirstName, u.userLastName
 from appointments a,users u 
-where a.userID=u.userID or a.userID is null";
+where a.userID=u.userID or a.userID is null order by a.appointmentDate, a.appointmentTime";
 }
 
+//echo "<p>sql:" . $sql . "</p>";
 
 /*
 $sql = "select a.appointmentID, a.appointmentDate, a.appointmentTime,a.appointmentGroupID,a.appointmentTeamName,a.appointmentEmail,
@@ -61,6 +67,8 @@ echo "<th>Group Number:</th>";
 echo "<th>Group Name:</th>";
 echo "<th>Email:</th>";
 echo "<th>Name:</th>";
+echo "<th>UserID:</th>";
+echo "<th>Action:</th>";
 //echo "<th>Availability:</th>";
 echo "</tr>";
 //$row2 = $result2->fetch_assoc();
@@ -143,5 +151,7 @@ foreach ($rows as $row) {
 
 echo "</table>";
 //echo "<p>" . $sql . "</p>";
+
+echo "</body>";
 $conn->close();
 ?>

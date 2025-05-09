@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'testConn.php';
 $username = $_POST['username'];
 $password = $_POST['password'];
@@ -11,7 +12,9 @@ $result = $conn->query($sql);
 while ($row = $result->fetch_assoc()) {
     //echo '<p>'.$row['username'].'</p>';
     if($username==$row['username']&&$password==$row['userPassword']){
+        
         $_SESSION["userID"] = $row['userID'];
+        //$_SESSION["userID"] = 10;
         $_SESSION["fname"] = $row['userFirstName'];
         $_SESSION["lname"] = $row['userLastName'];
 
