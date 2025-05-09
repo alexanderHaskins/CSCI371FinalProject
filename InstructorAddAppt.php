@@ -5,7 +5,7 @@ session_start();
 
 include"header.html";
 include"footer.html";
-include'connection.php';
+include'connect.php';
 
     $date = $_POST['appointmentDate'];
     $time = $_POST['appointmentTime'];
@@ -20,7 +20,7 @@ include'connection.php';
     ", appointmentGroupID=" . $group . ", appointmentTeamName=" . $email . ", userID=" . $user .
     "WHERE appointmentID=".$appointment;
 
-header("location: InstructorView.php");
+header("location: InstHome.php");
 $conn -> close();
 ?>
 
