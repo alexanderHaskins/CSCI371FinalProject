@@ -1,5 +1,4 @@
 <?php
-
 /* Database credentials */
 define('DB_SERVER', 'rei.cs.ndsu.nodak.edu');
 define('DB_USERNAME', 'jamie_l_martin_371s25');
@@ -13,5 +12,4 @@ $conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 if ($conn === false) {
     die("Connection failed: " . mysqli_connect_error());
 }
-echo "Connected successfully";
 ?>
