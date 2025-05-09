@@ -1,18 +1,15 @@
-
-
-
 <?php
 //File shown is the actions the instrcuctor can take with editing appointments
 session_start();
 
 include("header.html");
 include("footer.html");
-include'connection.php';
+include'connect.php';
 
 $login = $_SESSION['InstructorName'];
 echo $_SESSION['InstructorName'];
 
-echo "<table border='1'>";
+echo "<table border='2'>";
 "<tr>";
 "<th>Date</th>";
 "<th>Time</th>";
