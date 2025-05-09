@@ -1,5 +1,7 @@
 <?php
 session_start();
+include("footer.html");
+include("header.php");
 include 'testConn.php';
 $username = $_POST['username'];
 $password = $_POST['password'];

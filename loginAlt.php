@@ -22,7 +22,7 @@ echo '<head>
 
 </head>';
 echo '<div id="header">
-<img class="image" src="NDSU.jpg" width="150" align="right"> <br />
+<!-- <img class="image" src="NDSU.jpg" width="150" align="right"> <br /> -->
     
 </div>';
 echo '<div class="input">
