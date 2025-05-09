@@ -5,6 +5,7 @@
 session_start();
 include("header.html");
 include("footer.html");
+include'connect.php;
 
 $login = $_SESSION['username'];
 echo $_SESSION['username'];
@@ -22,5 +23,5 @@ $result = $conn->query($sql);
         echo "Unable to execute $sql. " . mysqli_error($link);
     }
 $conn->close();
-header("location: InstructorView.php");
+header("location: InstHome.php");
 ?>
