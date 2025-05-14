@@ -24,7 +24,7 @@ while ($row = $result->fetch_assoc()) {
         
         if($row['userType']=='Instructor'){
             echo "<p> Instructor";
-            //header("location: studentView.php");
+            header("location: InstHome.php");        //login into Instructor homepage
         }else if($row['userType']=='Student'){
             echo "<p>Student<p>";
             header("location: studentView.php");
