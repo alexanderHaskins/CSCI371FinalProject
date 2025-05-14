@@ -1,7 +1,7 @@
 <?php
 
 include "footer.html";
-include "headerInst.html";
+include "header.php";
 
 include "testConn.php";
 
